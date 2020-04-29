@@ -596,7 +596,19 @@
       "type": "string",
       "minLength": 1,
       "defaultValue": "[concat(parameters('deploymentId'), '-asb')]"
-    }
+    },
+    "aseName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the App Service Environment"
+      }
+    },
+    "aseResourceGroupName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the resource group that the ASE resides in."
+      }
+    },
   },
   "resources": [
     {
@@ -633,7 +645,12 @@
           "location": {
             "value": "[parameters('location')]"
           },
-
+			    "aseName": {
+			      "value": "[parameters('aseName')]"
+			    },
+			    "aseResourceGroupName": {
+			      "value": "[parameters('aseResourceGroupName')]"
+			    },
           "sqlServerName": {
             "value": "[parameters('sqlServerName')]"
           },
